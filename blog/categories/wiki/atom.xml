@@ -4,7 +4,7 @@
   <title><![CDATA[Category: wiki | I am alberto]]></title>
   <link href="http://amiorin.github.com/blog/categories/wiki/atom.xml" rel="self"/>
   <link href="http://amiorin.github.com/"/>
-  <updated>2013-03-26T17:50:53+01:00</updated>
+  <updated>2013-03-27T00:18:58+01:00</updated>
   <id>http://amiorin.github.com/</id>
   <author>
     <name><![CDATA[Alberto Miorin]]></name>
@@ -64,7 +64,7 @@ git commit -m "minor changes"
 git push
 </code></p>
 
-<p>But if you use <a href="https://rvm.io/">Rvm</a>, you can create a .rvmrc in the root of your wiki:</p>
+<p>But if you use <a href="https://rvm.io/">Rvm</a>, you can create a <code>.rvmrc</code> in the root of your wiki:</p>
 
 <p>```sh</p>
 

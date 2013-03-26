@@ -1,15 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
+        <loc>http://amiorin.github.com/blog/2013/02/20/tab-pages-in-vim/</loc>
+        <lastmod>2013-03-27T00:14:13+01:00</lastmod>
+    </url>
+    <url>
         <loc>http://amiorin.github.com/blog/2013/03/25/the-zen-of-wiki-with-gollum/</loc>
-        <lastmod>2013-03-26T17:38:39+01:00</lastmod>
+        <lastmod>2013-03-26T20:13:54+01:00</lastmod>
     </url>
     <url>
         <loc>http://amiorin.github.com/blog/archives/</loc>
-        <lastmod>2013-03-26T17:38:39+01:00</lastmod>
+        <lastmod>2013-03-27T00:14:13+01:00</lastmod>
     </url>
     <url>
         <loc>http://amiorin.github.com/</loc>
-        <lastmod>2013-03-26T17:38:39+01:00</lastmod>
+        <lastmod>2013-03-27T00:14:13+01:00</lastmod>
     </url>
 </urlset>

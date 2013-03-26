@@ -146,7 +146,7 @@ you prefer to use Vim, I suggest you to install these plugins with <a href="http
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>But if you use <a href="https://rvm.io/">Rvm</a>, you can create a .rvmrc in the root of your wiki:</p>
+<p>But if you use <a href="https://rvm.io/">Rvm</a>, you can create a <code>.rvmrc</code> in the root of your wiki:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -204,12 +204,94 @@ executes it. If you don&#8217;t use Rvm, you can use <a href="https://github.com
 	<div class="tags">
 
 
-	<a class='category' href='/blog/categories/github/'>github</a>, <a class='category' href='/blog/categories/gollum/'>gollum</a>, <a class='category' href='/blog/categories/wiki/'>wiki</a>
+	<a class='category' href='/blog/categories/github/'>github</a>, <a class='category' href='/blog/categories/gollum/'>gollum</a>, <a class='category' href='/blog/categories/vim/'>vim</a>, <a class='category' href='/blog/categories/wiki/'>wiki</a>
 
 
 </div>
 	
 		<div class="comments"><a href="/blog/2013/03/25/the-zen-of-wiki-with-gollum//index.html#disqus_thread">Comments</a></div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/02/20/tab-pages-in-vim/">
+		
+			Tab Pages in Vim</a>
+	</h2>
+	<div class="entry-content">
+		<p>This tip works only with MacVim (or GVim).</p>
+
+<p>In Vim you can use one tab page per file, like in other editors, but I
+think it doesn&#8217;t work very well. I prefer to use one tab page for every
+project. I used to use a MacVim window for project, but the copy and paste was
+a nightmare.</p>
+
+<p><img src="/images/dotfiles.png" width="250">
+<img src="/images/octopress.png" width="250">
+<img src="/images/gollum.png" width="250"></p>
+
+<p>The rule is simple. Every <strong>tab page</strong> is a <strong>project</strong> and it has a <strong>[local] working
+directory</strong> that is displayed in the <code>guitablabel</code>.</p>
+
+<h2>The code</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="c">&quot; IMPORTANT! Inside your .gvimrc</span>
+</span><span class='line'>augroup cwd
+</span><span class='line'>  <span class="k">au</span><span class="p">!</span>
+</span><span class='line'>  <span class="k">au</span> <span class="nb">CursorMoved</span><span class="p">,</span><span class="nb">WinEnter</span> * <span class="k">call</span> settabvar<span class="p">(</span>tabpagenr<span class="p">(),</span><span class="s1">&#39;cwd&#39;</span><span class="p">,</span> substitute<span class="p">(</span>getcwd<span class="p">(),</span> $HOME<span class="p">,</span> <span class="s1">&#39;~&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
+</span><span class='line'>augroup END
+</span><span class='line'><span class="k">set</span> <span class="nb">guitablabel</span><span class="p">=</span>%{gettabvar<span class="p">(</span><span class="k">v</span>:lnum<span class="p">,</span><span class="s1">&#39;cwd&#39;</span><span class="p">)</span>}
+</span><span class='line'><span class="k">set</span> <span class="nb">showtabline</span><span class="p">=</span><span class="m">1</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Event DirEnter and DirLeave</h2>
+
+<p>I would like to see in the next versions of Vim these two events. They would
+be very useful to write new plugins <em>project-oriented</em>. In the meanwhile I&#8217;ve
+downloaded the source code of Vim. After ten years, maybe I&#8217;ll try again to
+write some C code again.</p>
+
+<p>For more info <code>:h autocommand-events</code> and <code>:h tabpages</code>.</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-20T20:27:00+01:00" pubdate data-updated="true">Feb 20<span>th</span>, 2013</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/vim/'>vim</a>
+
+
+</div>
+	
+		<div class="comments"><a href="/blog/2013/02/20/tab-pages-in-vim//index.html#disqus_thread">Comments</a></div>
 	
 </div></article>
 

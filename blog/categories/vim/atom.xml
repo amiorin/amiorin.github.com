@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: gollum | I am alberto]]></title>
-  <link href="http://amiorin.github.com/blog/categories/gollum/atom.xml" rel="self"/>
+  <title><![CDATA[Category: vim | I am alberto]]></title>
+  <link href="http://amiorin.github.com/blog/categories/vim/atom.xml" rel="self"/>
   <link href="http://amiorin.github.com/"/>
   <updated>2013-03-27T00:18:58+01:00</updated>
   <id>http://amiorin.github.com/</id>
@@ -99,6 +99,48 @@ executes it. If you don't use Rvm, you can use <a href="https://github.com/kenne
 
 
 <p>I'm ok for the next 10 years. :-)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Tab Pages in Vim]]></title>
+    <link href="http://amiorin.github.com/blog/2013/02/20/tab-pages-in-vim/"/>
+    <updated>2013-02-20T20:27:00+01:00</updated>
+    <id>http://amiorin.github.com/blog/2013/02/20/tab-pages-in-vim</id>
+    <content type="html"><![CDATA[<p>This tip works only with MacVim (or GVim).</p>
+
+<p>In Vim you can use one tab page per file, like in other editors, but I
+think it doesn't work very well. I prefer to use one tab page for every
+project. I used to use a MacVim window for project, but the copy and paste was
+a nightmare.</p>
+
+<p><img src="/images/dotfiles.png" width="250">
+<img src="/images/octopress.png" width="250">
+<img src="/images/gollum.png" width="250"></p>
+
+<p>The rule is simple. Every <strong>tab page</strong> is a <strong>project</strong> and it has a <strong>[local] working
+directory</strong> that is displayed in the <code>guitablabel</code>.</p>
+
+<h2>The code</h2>
+
+<p><code>vim
+" IMPORTANT! Inside your .gvimrc
+augroup cwd
+  au!
+  au CursorMoved,WinEnter * call settabvar(tabpagenr(),'cwd', substitute(getcwd(), $HOME, '~', ''))
+augroup END
+set guitablabel=%{gettabvar(v:lnum,'cwd')}
+set showtabline=1
+</code></p>
+
+<h2>Event DirEnter and DirLeave</h2>
+
+<p>I would like to see in the next versions of Vim these two events. They would
+be very useful to write new plugins <em>project-oriented</em>. In the meanwhile I've
+downloaded the source code of Vim. After ten years, maybe I'll try again to
+write some C code again.</p>
+
+<p>For more info <code>:h autocommand-events</code> and <code>:h tabpages</code>.</p>
 ]]></content>
   </entry>
   
