@@ -3,7 +3,7 @@ layout: post
 title: "The Zen of Wiki with Gollum"
 date: 2013-03-25 13:47
 comments: true
-categories: [wiki, github, gollum]
+categories: [wiki, github, gollum, vim]
 ---
 I've always loved wikis. They are very useful for bookmarks and snippets.
 After many years of [Dokuwiki][1], I switched to [Evernote][2]. The Evernote
@@ -45,7 +45,7 @@ git commit -m "minor changes"
 git push
 ```
 
-But if you use [Rvm][6], you can create a .rvmrc in the root of your wiki:
+But if you use [Rvm][6], you can create a ``.rvmrc`` in the root of your wiki:
 
 ```sh
 # .rvmrc
