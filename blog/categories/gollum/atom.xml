@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: gollum | I am alberto]]></title>
+  <link href="http://amiorin.github.com/blog/categories/gollum/atom.xml" rel="self"/>
+  <link href="http://amiorin.github.com/"/>
+  <updated>2013-03-26T16:27:45+01:00</updated>
+  <id>http://amiorin.github.com/</id>
+  <author>
+    <name><![CDATA[Alberto Miorin]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[The Zen of Wiki with Gollum]]></title>
+    <link href="http://amiorin.github.com/blog/2013/03/25/the-zen-of-wiki-with-gollum/"/>
+    <updated>2013-03-25T13:47:00+01:00</updated>
+    <id>http://amiorin.github.com/blog/2013/03/25/the-zen-of-wiki-with-gollum</id>
+    <content type="html"><![CDATA[<p>I've always loved wikis. They are very useful for bookmarks and snippets.
+After many years of <a href="https://www.dokuwiki.org/dokuwiki">Dokuwiki</a>, I switched to <a href="https://evernote.com/">Evernote</a>. The Evernote
+experience was very disappointing. But the Dokuwiki solution is based on
+Lamp that is so old and I didn't want to go back.</p>
+
+<p>So I switched to <a href="https://github.com/gollum/gollum">Gollum</a> and now I'm very satified.</p>
+
+<ul>
+<li>I can use Vim to edit my wiki.</li>
+<li>I can use Ack to search in my wiki.</li>
+<li>I can edit it on Github, if I need to.</li>
+</ul>
+
+
+<h2>Setup</h2>
+
+<p>Create a repository in Github (I use the repository of my blog). Click <code>wiki</code>
+→ <code>Git Access</code>.  Clone the wiki and you are done.</p>
+
+<h2>Edit</h2>
+
+<p>If you want to edit your wiki in Chrome with Gollum, read this <a href="http://www.nomachetejuggling.com/2012/05/15/personal-wiki-using-github-and-gollum-on-os-x/">article</a>. If
+you prefer to use Vim, I suggest you to install these plugins with <a href="https://github.com/gmarik/vundle">Vundle</a>:</p>
+
+<p><code>vim
+" open links in chrome
+Bundle 'tyru/open-browser.vim'
+" syntax highlight
+Bundle 'tpope/vim-markdown'
+" instant preview of markdown
+Bundle 'suan/vim-instant-markdown'
+" follow internal links of the wiki
+Bundle 'mmai/wikilink'
+</code></p>
+
+<h2>Sync</h2>
+
+<p>It's very boring to do every time you modify your wiki:</p>
+
+<p><code>sh
+git pull
+git add -A
+git commit -m "minor changes"
+git push
+</code></p>
+
+<p>But if you use <a href="https://rvm.io/">Rvm</a>, you can create a .rvmrc in the root of your wiki:</p>
+
+<p>```sh</p>
+
+<h1>.rvmrc</h1>
+
+<p>git pull &amp;&amp; git add -A &amp;&amp; git commit -m "minor changes" &amp;&amp; git push
+```</p>
+
+<p>Every time you cd, Rvm looks for a file called .rvmrc. If it finds it, it
+executes it. If you don't use Rvm, you can use <a href="https://github.com/kennethreitz/autoenv">Autoenv</a>.</p>
+
+<p>```sh</p>
+
+<h1>alias to sync when you are already in the root of the wiki.</h1>
+
+<p>alias gsync="sh ./.rvmrc"
+```</p>
+
+<h2>Conclusion</h2>
+
+<ul>
+<li>No database.</li>
+<li>Password protected if you need.</li>
+<li>Distribuited.</li>
+<li>Autosync.</li>
+<li>It works offline.</li>
+<li>Vim editing instead of the <code>textarea</code>.</li>
+<li>Regex search with Ack.</li>
+<li>Instant preview in the browser.</li>
+<li>Markdown language like in <a href="http://jekyllrb.com">Jekyll</a>.</li>
+</ul>
+
+
+<p>I'm ok for the next 10 years. :-)</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
+    <url>
+        <loc>http://amiorin.github.com/blog/2013/03/25/the-zen-of-wiki-with-gollum/</loc>
+        <lastmod>2013-03-25T20:01:43+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://amiorin.github.com/blog/archives/</loc>
+        <lastmod>2013-03-25T20:01:43+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://amiorin.github.com/</loc>
+        <lastmod>2013-03-25T20:01:43+01:00</lastmod>
+    </url>
+</urlset>
