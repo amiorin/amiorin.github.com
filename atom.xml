@@ -4,7 +4,7 @@
   <title><![CDATA[I am alberto]]></title>
   <link href="http://albertomiorin.com/atom.xml" rel="self"/>
   <link href="http://albertomiorin.com/"/>
-  <updated>2013-03-27T16:06:50+01:00</updated>
+  <updated>2013-03-27T16:07:23+01:00</updated>
   <id>http://albertomiorin.com/</id>
   <author>
     <name><![CDATA[Alberto Miorin]]></name>
@@ -325,7 +325,7 @@ a global mark <code>mS</code> (S is scratch).</p>
 </ul>
 
 
-<h2>But the undo is not userfriendly</h2>
+<h2>But the undo is not user-friendly</h2>
 
 <p>Yes, you&#8217;re right, try Losh&#8217;s <a href="https://github.com/sjl/gundo.vim">gundo</a></p>
 
