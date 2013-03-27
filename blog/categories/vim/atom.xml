@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vim | I am alberto]]></title>
   <link href="http://albertomiorin.com/blog/categories/vim/atom.xml" rel="self"/>
   <link href="http://albertomiorin.com/"/>
-  <updated>2013-03-27T10:30:39+01:00</updated>
+  <updated>2013-03-27T16:05:13+01:00</updated>
   <id>http://albertomiorin.com/</id>
   <author>
     <name><![CDATA[Alberto Miorin]]></name>
@@ -141,6 +141,85 @@ downloaded the source code of Vim. After ten years, maybe I'll try again to
 write some C code again.</p>
 
 <p>For more info <code>:h autocommand-events</code> and <code>:h tabpages</code>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Autoread and autowrite in Vim]]></title>
+    <link href="http://albertomiorin.com/blog/2012/12/10/autoread-and-autowrite-in-vim/"/>
+    <updated>2012-12-10T15:24:00+01:00</updated>
+    <id>http://albertomiorin.com/blog/2012/12/10/autoread-and-autowrite-in-vim</id>
+    <content type="html"><![CDATA[<h2>What</h2>
+
+<p>Don't save or reload your buffers. Vim can do that for you.</p>
+
+<h2>How</h2>
+
+<p>From my <a href="https://github.com/amiorin/dotfiles/blob/master/vimrc">.vimrc</a>
+```vim
+" autoread and autowrite
+augroup save
+  au!
+  au FocusLost * update
+augroup END
+set nohidden
+set nobackup
+set noswapfile
+set nowritebackup
+set autoread
+set autowrite
+set autowriteall</p>
+
+<p>" persistent-undo
+set undodir=~/.vim/undo
+set undofile
+```</p>
+
+<h2>Why</h2>
+
+<p><code>:w&lt;CR&gt;</code> and <code>&lt;D-s&gt;</code> take too much time. We should not be worried of data
+loss, because we have Git and <code>:h persistent-undo</code>.</p>
+
+<p>Additionaly how many times it's happened to waste time in Chrome, reloading
+the page n-times, because we had forgot to save in Vim?</p>
+
+<p>Using <code>nohidden</code>, <code>autowrite</code> and <code>update</code> we are sure that everything
+is saved.</p>
+
+<p>```sh</p>
+
+<h1>don't forget to create the directory for the undo files</h1>
+
+<p>mkdir ~/.vim/undo
+```</p>
+
+<h2>You don't need the scratch plugin</h2>
+
+<p>You would like to try a VimL snippet, create a <code>scratch.vim</code> somewhere. Use
+a global mark <code>mS</code> (S is scratch).</p>
+
+<p>Now with <code>'S</code> you are in your scratch buffer.</p>
+
+<p>Use <a href="https://github.com/amiorin/vim-eval">vim-eval</a> to evaluate (<code>&lt;C-c</code>) the file, the region or the line</p>
+
+<h2>Other global marks that I use</h2>
+
+<ul>
+<li><code>'V</code> my .vimrc</li>
+<li><code>'T</code> my todos</li>
+<li><code>'0</code> last file edited</li>
+</ul>
+
+
+<h2>But the undo is not userfriendly</h2>
+
+<p>Yes, you're right, try Losh's <a href="https://github.com/sjl/gundo.vim">gundo</a></p>
+
+<p><code>vim
+Bundle 'sjl/gundo.vim'
+</code></p>
+
+<p>The command is <code>GundoToggle</code>.</p>
 ]]></content>
   </entry>
   

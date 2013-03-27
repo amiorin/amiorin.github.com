@@ -1,0 +1,282 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Autoread and autowrite in Vim - I am alberto</title>
+	<meta name="author" content="Alberto Miorin">
+
+	
+	<meta name="description" content="What Don&#8217;t save or reload your buffers. Vim can do that for you. How From my .vimrc 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+&quot; autoread and &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="I am alberto" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.ico" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">I am alberto</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:albertomiorin.com">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		
+		<a class="twitter" href="http://twitter.com/amiorin" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/amiorin" title="GitHub">GitHub</a>
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:albertomiorin.com">
+	</form>
+</nav>
+
+</header>
+	
+		
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Autoread and autowrite in Vim</h2>
+	<div class="entry-content"><h2>What</h2>
+
+<p>Don&#8217;t save or reload your buffers. Vim can do that for you.</p>
+
+<h2>How</h2>
+
+<p>From my <a href="https://github.com/amiorin/dotfiles/blob/master/vimrc">.vimrc</a></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="c">&quot; autoread and autowrite</span>
+</span><span class='line'>augroup <span class="k">save</span>
+</span><span class='line'>  <span class="k">au</span><span class="p">!</span>
+</span><span class='line'>  <span class="k">au</span> <span class="nb">FocusLost</span> * <span class="k">update</span>
+</span><span class='line'>augroup END
+</span><span class='line'><span class="k">set</span> <span class="nb">nohidden</span>
+</span><span class='line'><span class="k">set</span> <span class="nb">nobackup</span>
+</span><span class='line'><span class="k">set</span> <span class="nb">noswapfile</span>
+</span><span class='line'><span class="k">set</span> <span class="nb">nowritebackup</span>
+</span><span class='line'><span class="k">set</span> <span class="nb">autoread</span>
+</span><span class='line'><span class="k">set</span> <span class="nb">autowrite</span>
+</span><span class='line'><span class="k">set</span> <span class="nb">autowriteall</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">&quot; persistent-undo</span>
+</span><span class='line'><span class="k">set</span> <span class="nb">undodir</span><span class="p">=~</span><span class="sr">/.vim/</span>undo
+</span><span class='line'><span class="k">set</span> <span class="nb">undofile</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Why</h2>
+
+<p><code>:w&lt;CR&gt;</code> and <code>&lt;D-s&gt;</code> take too much time. We should not be worried of data
+loss, because we have Git and <code>:h persistent-undo</code>.</p>
+
+<p>Additionaly how many times it&#8217;s happened to waste time in Chrome, reloading
+the page n-times, because we had forgot to save in Vim?</p>
+
+<p>Using <code>nohidden</code>, <code>autowrite</code> and <code>update</code> we are sure that everything
+is saved.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c"># don&#39;t forget to create the directory for the undo files</span>
+</span><span class='line'>mkdir ~/.vim/undo
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>You don&#8217;t need the scratch plugin</h2>
+
+<p>You would like to try a VimL snippet, create a <code>scratch.vim</code> somewhere. Use
+a global mark <code>mS</code> (S is scratch).</p>
+
+<p>Now with <code>'S</code> you are in your scratch buffer.</p>
+
+<p>Use <a href="https://github.com/amiorin/vim-eval">vim-eval</a> to evaluate (<code>&lt;C-c</code>) the file, the region or the line</p>
+
+<h2>Other global marks that I use</h2>
+
+<ul>
+<li><code>'V</code> my .vimrc</li>
+<li><code>'T</code> my todos</li>
+<li><code>'0</code> last file edited</li>
+</ul>
+
+
+<h2>But the undo is not userfriendly</h2>
+
+<p>Yes, you&#8217;re right, try Losh&#8217;s <a href="https://github.com/sjl/gundo.vim">gundo</a></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'>Bundle <span class="s1">&#39;sjl/gundo.vim&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The command is <code>GundoToggle</code>.</p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-10T15:24:00+01:00" pubdate data-updated="true">Dec 10<span>th</span>, 2012</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/vim/'>vim</a>
+
+
+</div>
+	
+		<div class="comments"><a href="/blog/2012/12/10/autoread-and-autowrite-in-vim/#disqus_thread">Comments</a></div>
+	
+</div></article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2013
+
+    Alberto Miorin
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'amiorin';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://albertomiorin.com/blog/2012/12/10/autoread-and-autowrite-in-vim/';
+        var disqus_url = 'http://albertomiorin.com/blog/2012/12/10/autoread-and-autowrite-in-vim/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-39629992-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+
+
+</body>
+</html>
