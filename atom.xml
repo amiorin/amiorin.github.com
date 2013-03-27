@@ -4,7 +4,7 @@
   <title><![CDATA[I am alberto]]></title>
   <link href="http://amiorin.github.com/atom.xml" rel="self"/>
   <link href="http://amiorin.github.com/"/>
-  <updated>2013-03-27T00:35:06+01:00</updated>
+  <updated>2013-03-27T02:36:04+01:00</updated>
   <id>http://amiorin.github.com/</id>
   <author>
     <name><![CDATA[Alberto Miorin]]></name>
@@ -160,6 +160,84 @@ downloaded the source code of Vim. After ten years, maybe I&#8217;ll try again t
 write some C code again.</p>
 
 <p>For more info <code>:h autocommand-events</code> and <code>:h tabpages</code>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[PowerToys for Mac OS X]]></title>
+    <link href="http://amiorin.github.com/blog/2013/01/15/powertoys-for-mac-os-x/"/>
+    <updated>2013-01-15T01:48:00+01:00</updated>
+    <id>http://amiorin.github.com/blog/2013/01/15/powertoys-for-mac-os-x</id>
+    <content type="html"><![CDATA[<h3><a href="https://github.com/clvv/fasd">Fasd</a></h3>
+
+<p>Command-line productivity booster.</p>
+
+<h3><a href="http://www.zsh.org/">Zsh</a></h3>
+
+<p>Prompt with 2 lines.<br/>
+Advanced completion <code>cp README.md ,octo&lt;Tab&gt;</code> ⇒ <code>cp README.md /Users/amiorin/Code/octopress</code>.</p>
+
+<h3><a href="http://www.iterm2.com/">iTerm2</a></h3>
+
+<p>256 colors and Solized.</p>
+
+<h3><a href="https://code.google.com/p/macvim/">MacVim</a></h3>
+
+<p>Best editor.</p>
+
+<h3><a href="http://mizage.com/divvy/">Divvy</a></h3>
+
+<p>Good window manager.</p>
+
+<h3><a href="http://fluidapp.com/">Fluid</a></h3>
+
+<p>Turn Your Favorite Web Apps into Real Mac Apps.<br/>
+Cookie Storage for separeted from Safari ⇒ Multiple Gmail accounts without
+problems.</p>
+
+<h3><a href="http://www.dueapp.com/">Due</a></h3>
+
+<p>Good reminder.</p>
+
+<h3><a href="http://magicprefs.com/">MagicPrefs</a></h3>
+
+<p>Better MacBook Trackpad.</p>
+
+<h3><a href="http://evernote.com/skitch/">Skitch</a></h3>
+
+<p>Annotated screenshots.</p>
+
+<h3><a href="http://mxcl.github.com/homebrew/">Homebrew</a></h3>
+
+<p>The missing package manager for OS X.</p>
+
+<h3><a href="https://rvm.io/">Rvm</a></h3>
+
+<p>RVM is a command-line tool which allows you to easily install, manage, and work with multiple ruby environments from interpreters to sets of gems.</p>
+
+<h3><a href="http://git-scm.com/">Git</a></h3>
+
+<p>Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.</p>
+
+<h3><a href="http://pow.cx/">Pow</a></h3>
+
+<p>Pow is a zero-config Rack server for Mac OS X.</p>
+
+<h3><a href="https://github.com/burke/zeus">Zeus</a></h3>
+
+<p>Boot any rails app in under a second.</p>
+
+<h3><a href="http://rowanj.github.com/gitx/">GitX</a></h3>
+
+<p>GitX-dev is a fork (variant) of GitX, a long-defunct GUI for the git version-control system. It has been maintained and enhanced with productivity and friendliness oriented changes, with effort focused on making a first-class, maintainable tool for today&#8217;s active developers.</p>
+
+<h3><a href="http://totalfinder.binaryage.com/">TotalFinder</a></h3>
+
+<p>Finder sucks.</p>
+
+<h3><a href="http://www.sequelpro.com/">Sequel Pro</a></h3>
+
+<p>Sequel Pro is a fast, easy-to-use Mac database management application for working with MySQL databases.</p>
 ]]></content>
   </entry>
   
