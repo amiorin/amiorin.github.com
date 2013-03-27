@@ -50,3 +50,4 @@ fi
 # then
 #   bundle install | GREP_OPTIONS= \grep -vE '^Using|Your bundle is complete'
 # fi
+git pull && git add -A && git commit -m "minor changes" && git push
