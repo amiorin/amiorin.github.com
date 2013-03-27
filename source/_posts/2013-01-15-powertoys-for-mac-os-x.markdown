@@ -3,7 +3,7 @@ layout: post
 title: "PowerToys for Mac OS X"
 date: 2013-01-15 01:48
 comments: true
-categories: 
+categories: [osx]
 ---
 ### [Fasd][1]
 Command-line productivity booster.
