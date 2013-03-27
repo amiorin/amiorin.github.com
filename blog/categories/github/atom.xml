@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: github | I am alberto]]></title>
-  <link href="http://amiorin.github.com/blog/categories/github/atom.xml" rel="self"/>
-  <link href="http://amiorin.github.com/"/>
-  <updated>2013-03-27T02:36:04+01:00</updated>
-  <id>http://amiorin.github.com/</id>
+  <link href="http://albertomiorin.com/blog/categories/github/atom.xml" rel="self"/>
+  <link href="http://albertomiorin.com/"/>
+  <updated>2013-03-27T10:27:30+01:00</updated>
+  <id>http://albertomiorin.com/</id>
   <author>
     <name><![CDATA[Alberto Miorin]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[The Zen of Wiki with Gollum]]></title>
-    <link href="http://amiorin.github.com/blog/2013/03/25/the-zen-of-wiki-with-gollum/"/>
+    <link href="http://albertomiorin.com/blog/2013/03/25/the-zen-of-wiki-with-gollum/"/>
     <updated>2013-03-25T13:47:00+01:00</updated>
-    <id>http://amiorin.github.com/blog/2013/03/25/the-zen-of-wiki-with-gollum</id>
+    <id>http://albertomiorin.com/blog/2013/03/25/the-zen-of-wiki-with-gollum</id>
     <content type="html"><![CDATA[<p>I've always loved wikis. They are very useful for bookmarks and snippets.
 After many years of <a href="https://www.dokuwiki.org/dokuwiki">Dokuwiki</a>, I switched to <a href="https://evernote.com/">Evernote</a>. The Evernote
 experience was very disappointing. But the Dokuwiki solution is based on
