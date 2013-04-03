@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vim | I am alberto]]></title>
   <link href="http://albertomiorin.com/blog/categories/vim/atom.xml" rel="self"/>
   <link href="http://albertomiorin.com/"/>
-  <updated>2013-03-27T22:32:57+01:00</updated>
+  <updated>2013-04-03T07:38:23+02:00</updated>
   <id>http://albertomiorin.com/</id>
   <author>
     <name><![CDATA[Alberto Miorin]]></name>
@@ -19,16 +19,13 @@
     <updated>2013-03-25T13:47:00+01:00</updated>
     <id>http://albertomiorin.com/blog/2013/03/25/the-zen-of-wiki-with-gollum</id>
     <content type="html"><![CDATA[<p>I've always loved wikis. They are very useful for bookmarks and snippets.
-After many years of <a href="https://www.dokuwiki.org/dokuwiki">Dokuwiki</a>, I switched to <a href="https://evernote.com/">Evernote</a>. The Evernote
-experience was very disappointing. But the Dokuwiki solution is based on
-Lamp that is so old and I didn't want to go back.</p>
-
-<p>So I switched to <a href="https://github.com/gollum/gollum">Gollum</a> and now I'm very satified.</p>
+After many years of <a href="https://www.dokuwiki.org/dokuwiki">Dokuwiki</a>, I switched to <a href="https://github.com/gollum/gollum">Gollum</a> for these
+reasons:</p>
 
 <ul>
-<li>I can use Vim to edit my wiki.</li>
-<li>I can use Ack to search in my wiki.</li>
-<li>I can edit it on Github, if I need to.</li>
+<li>I can use Vim to edit my wiki pages.</li>
+<li>I can use Ack for searching.</li>
+<li>I can read/edit it on Github, when I'm not on my MacBook.</li>
 </ul>
 
 
@@ -47,11 +44,24 @@ you prefer to use Vim, I suggest you to install these plugins with <a href="http
 Bundle 'tyru/open-browser.vim'
 " syntax highlight
 Bundle 'tpope/vim-markdown'
-" instant preview of markdown
-Bundle 'suan/vim-instant-markdown'
 " follow internal links of the wiki
 Bundle 'mmai/wikilink'
 </code></p>
+
+<h2>Reloadlive</h2>
+
+<p>If you want to see the wiki page rendered in your browser while you are
+writing it, I have written a gem called <a href="https://github.com/amiorin/reloadlive">Reloadlive</a>.</p>
+
+<p>```bash
+$ gem install reloadlive</p>
+
+<h1>inside the directory of gollum</h1>
+
+<p>$ reloadlive
+```</p>
+
+<p><img src="https://raw.github.com/amiorin/reloadlive/master/demo.gif" alt="Reloadlive demo" /></p>
 
 <h2>Sync</h2>
 

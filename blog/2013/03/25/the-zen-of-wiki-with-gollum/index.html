@@ -8,7 +8,8 @@
 
 	
 	<meta name="description" content="I&#8217;ve always loved wikis. They are very useful for bookmarks and snippets.
-After many years of Dokuwiki, I switched to Evernote. The Evernote &hellip;">
+After many years of Dokuwiki, I switched to Gollum for these
+reasons &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -80,16 +81,13 @@ After many years of Dokuwiki, I switched to Evernote. The Evernote &hellip;">
 	<div id="content" class="inner"><article class="post">
 	<h2 class="title">The Zen of Wiki with Gollum</h2>
 	<div class="entry-content"><p>I&#8217;ve always loved wikis. They are very useful for bookmarks and snippets.
-After many years of <a href="https://www.dokuwiki.org/dokuwiki">Dokuwiki</a>, I switched to <a href="https://evernote.com/">Evernote</a>. The Evernote
-experience was very disappointing. But the Dokuwiki solution is based on
-Lamp that is so old and I didn&#8217;t want to go back.</p>
-
-<p>So I switched to <a href="https://github.com/gollum/gollum">Gollum</a> and now I&#8217;m very satified.</p>
+After many years of <a href="https://www.dokuwiki.org/dokuwiki">Dokuwiki</a>, I switched to <a href="https://github.com/gollum/gollum">Gollum</a> for these
+reasons:</p>
 
 <ul>
-<li>I can use Vim to edit my wiki.</li>
-<li>I can use Ack to search in my wiki.</li>
-<li>I can edit it on Github, if I need to.</li>
+<li>I can use Vim to edit my wiki pages.</li>
+<li>I can use Ack for searching.</li>
+<li>I can read/edit it on Github, when I&#8217;m not on my MacBook.</li>
 </ul>
 
 
@@ -109,18 +107,30 @@ you prefer to use Vim, I suggest you to install these plugins with <a href="http
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
 </pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="c">&quot; open links in chrome</span>
 </span><span class='line'>Bundle <span class="s1">&#39;tyru/open-browser.vim&#39;</span>
 </span><span class='line'><span class="c">&quot; syntax highlight</span>
 </span><span class='line'>Bundle <span class="s1">&#39;tpope/vim-markdown&#39;</span>
-</span><span class='line'><span class="c">&quot; instant preview of markdown</span>
-</span><span class='line'>Bundle <span class="s1">&#39;suan/vim-instant-markdown&#39;</span>
 </span><span class='line'><span class="c">&quot; follow internal links of the wiki</span>
 </span><span class='line'>Bundle <span class="s1">&#39;mmai/wikilink&#39;</span>
 </span></code></pre></td></tr></table></div></figure>
 
+
+<h2>Reloadlive</h2>
+
+<p>If you want to see the wiki page rendered in your browser while you are
+writing it, I have written a gem called <a href="https://github.com/amiorin/reloadlive">Reloadlive</a>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>gem install reloadlive
+</span><span class='line'><span class="c"># inside the directory of gollum</span>
+</span><span class='line'><span class="nv">$ </span>reloadlive
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="https://raw.github.com/amiorin/reloadlive/master/demo.gif" alt="Reloadlive demo" /></p>
 
 <h2>Sync</h2>
 
