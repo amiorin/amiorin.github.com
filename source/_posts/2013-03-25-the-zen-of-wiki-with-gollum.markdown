@@ -6,15 +6,12 @@ comments: true
 categories: [wiki, github, gollum, vim]
 ---
 I've always loved wikis. They are very useful for bookmarks and snippets.
-After many years of [Dokuwiki][1], I switched to [Evernote][2]. The Evernote
-experience was very disappointing. But the Dokuwiki solution is based on
-Lamp that is so old and I didn't want to go back.
+After many years of [Dokuwiki][1], I switched to [Gollum][3] for these
+reasons:
 
-So I switched to [Gollum][3] and now I'm very satified.
-
-* I can use Vim to edit my wiki.
-* I can use Ack to search in my wiki.
-* I can edit it on Github, if I need to.
+* I can use Vim to edit my wiki pages.
+* I can use Ack for searching.
+* I can read/edit it on Github, when I'm not on my MacBook.
 
 ## Setup
 Create a repository in Github (I use the repository of my blog). Click ``wiki``
@@ -29,11 +26,21 @@ you prefer to use Vim, I suggest you to install these plugins with [Vundle][7]:
 Bundle 'tyru/open-browser.vim'
 " syntax highlight
 Bundle 'tpope/vim-markdown'
-" instant preview of markdown
-Bundle 'suan/vim-instant-markdown'
 " follow internal links of the wiki
 Bundle 'mmai/wikilink'
 ```
+
+## Reloadlive
+If you want to see the wiki page rendered in your browser while you are
+writing it, I have written a gem called [Reloadlive][9].
+
+```bash
+$ gem install reloadlive
+# inside the directory of gollum
+$ reloadlive
+```
+
+![Reloadlive demo](https://raw.github.com/amiorin/reloadlive/master/demo.gif)
 
 ## Sync
 It's very boring to do every time you modify your wiki:
@@ -75,11 +82,11 @@ alias gsync="sh ./.rvmrc"
 I'm ok for the next 10 years. :-)
 
 [1]: https://www.dokuwiki.org/dokuwiki
-[2]: https://evernote.com/
 [3]: https://github.com/gollum/gollum
 [4]: http://www.nomachetejuggling.com/2012/05/15/personal-wiki-using-github-and-gollum-on-os-x/
 [5]: https://github.com/kennethreitz/autoenv
 [6]: https://rvm.io/
 [7]: https://github.com/gmarik/vundle
 [8]: http://jekyllrb.com
+[9]: https://github.com/amiorin/reloadlive
 
