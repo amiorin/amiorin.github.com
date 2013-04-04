@@ -160,8 +160,12 @@ writing it, I have written a gem called <a href="https://github.com/amiorin/relo
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
 </pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c"># .rvmrc</span>
-</span><span class='line'>git pull <span class="o">&amp;&amp;</span> git add -A <span class="o">&amp;&amp;</span> git commit -m <span class="s2">&quot;minor changes&quot;</span> <span class="o">&amp;&amp;</span> git push
+</span><span class='line'><span class="k">if</span> <span class="o">[[</span> <span class="nv">$-</span> <span class="o">==</span> *i* <span class="o">]]</span> <span class="c"># check for interactive shells</span>
+</span><span class='line'><span class="k">then </span>git pull <span class="o">&amp;&amp;</span> git add -A <span class="o">&amp;&amp;</span> git commit -m <span class="s2">&quot;minor changes&quot;</span> <span class="o">&amp;&amp;</span> git push
+</span><span class='line'><span class="k">fi</span>
 </span></code></pre></td></tr></table></div></figure>
 
 

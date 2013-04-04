@@ -4,7 +4,7 @@
   <title><![CDATA[Category: gollum | I am alberto]]></title>
   <link href="http://albertomiorin.com/blog/categories/gollum/atom.xml" rel="self"/>
   <link href="http://albertomiorin.com/"/>
-  <updated>2013-04-03T07:38:23+02:00</updated>
+  <updated>2013-04-04T22:29:53+02:00</updated>
   <id>http://albertomiorin.com/</id>
   <author>
     <name><![CDATA[Alberto Miorin]]></name>
@@ -80,7 +80,9 @@ git push
 
 <h1>.rvmrc</h1>
 
-<p>git pull &amp;&amp; git add -A &amp;&amp; git commit -m "minor changes" &amp;&amp; git push
+<p>if [[ $- == <em>i</em> ]] # check for interactive shells
+then git pull &amp;&amp; git add -A &amp;&amp; git commit -m "minor changes" &amp;&amp; git push
+fi
 ```</p>
 
 <p>Every time you cd, Rvm looks for a file called .rvmrc. If it finds it, it
