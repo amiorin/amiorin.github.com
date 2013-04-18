@@ -4,7 +4,7 @@
   <title><![CDATA[I am alberto]]></title>
   <link href="http://albertomiorin.com/atom.xml" rel="self"/>
   <link href="http://albertomiorin.com/"/>
-  <updated>2013-04-04T22:29:53+02:00</updated>
+  <updated>2013-04-18T17:39:34+02:00</updated>
   <id>http://albertomiorin.com/</id>
   <author>
     <name><![CDATA[Alberto Miorin]]></name>
@@ -12,6 +12,68 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[A Vim plugin for editing fenced code blocks]]></title>
+    <link href="http://albertomiorin.com/blog/2013/04/18/a-vim-plugin-for-editing-fenced-code-blocks/"/>
+    <updated>2013-04-18T17:29:00+02:00</updated>
+    <id>http://albertomiorin.com/blog/2013/04/18/a-vim-plugin-for-editing-fenced-code-blocks</id>
+    <content type="html"><![CDATA[<h2>Introduction</h2>
+
+<p><a href="https://help.github.com/articles/github-flavored-markdown#fenced-code-blocks">Fenced code blocks</a> are a very useful feature of GitHub Flavored Markdown.
+With this plugin you can edit the fragment of code embedded inside the
+markdown with the right filetype.</p>
+
+<p><img src="https://raw.github.com/amiorin/vim-fenced-code-blocks/master/demo.gif" alt="img" /></p>
+
+<h2>Install</h2>
+
+<p>If you use <a href="https://github.com/gmarik/vundle.git">Vundle</a> you can install this plugin using Vim command <code>:BundleInstall amiorin/vim-fenced-code-blocks</code>.
+Don&#8217;t forget put a line <code>Bundle 'amiorin/vim-fenced-code-blocks'</code> in your <code>.vimrc</code>.</p>
+
+<p>If you use <a href="https://github.com/tpope/vim-pathogen">Pathogen</a>, you just execute following:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nb">cd</span> ~/.vim/bundle
+</span><span class='line'>git https://github.com/amiorin/vim-fenced-code-blocks.git
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you don&#8217;t use either plugin management system, copy the <code>plugin</code> directory to your <code>.vim</code> directory.</p>
+
+<p>*nix: $HOME/.vim
+Windows: $HOME/vimfiles</p>
+
+<h2>Use</h2>
+
+<p>This plugin defines 4 new commands:</p>
+
+<ul>
+<li><code>:E</code> to edit in the same window, <code>CTRL-^</code> to go back to the markdown file</li>
+<li><code>:EV</code> to edit in the vertical split window, <code>CTRL-W l</code> to go back to the markdown file</li>
+<li><code>:ES</code> to edit in the horizontal split window, <code>CTRL-W j</code> to go back to the markdown file</li>
+<li><code>:ET</code> to edit in a new tab.</li>
+</ul>
+
+
+<p>All the commands accept the <code>bang</code>.</p>
+
+<h2>Self-Promotion</h2>
+
+<ul>
+<li>Star the repository on <a href="https://github.com/amiorin/vim-fenced-code-blocks">GitHub</a></li>
+<li>Follow <a href="http://albertomiorin.com">amiorin</a> on
+
+<ul>
+<li><a href="http://twitter.com/amiorin">Twitter</a></li>
+<li><a href="https://github.com/amiorin">GitHub</a></li>
+</ul>
+</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[The Zen of Wiki with Gollum]]></title>
