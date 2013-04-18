@@ -56,7 +56,9 @@ But if you use [Rvm][6], you can create a ``.rvmrc`` in the root of your wiki:
 
 ```sh
 # .rvmrc
-git pull && git add -A && git commit -m "minor changes" && git push
+if [[ $- == *i* ]] # check for interactive shells
+then git pull && git add -A && git commit -m "minor changes" && git push
+fi
 ```
 
 Every time you cd, Rvm looks for a file called .rvmrc. If it finds it, it
