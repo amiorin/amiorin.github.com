@@ -5,7 +5,7 @@ title: "My projects"
 ## Vim plugins
 | [vim-bookmarks][1]
 | [vim-fenced-code-blocks][2]
-| [vim-projects][3]
+| [vim-project][3]
 | [ctrlp-z][4]
 | [vim-eval][5]
 | [vim-fasd][6]
