@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vim | I am alberto]]></title>
   <link href="http://albertomiorin.com/blog/categories/vim/atom.xml" rel="self"/>
   <link href="http://albertomiorin.com/"/>
-  <updated>2013-05-08T12:41:35+02:00</updated>
+  <updated>2013-05-09T00:29:57+02:00</updated>
   <id>http://albertomiorin.com/</id>
   <author>
     <name><![CDATA[Alberto Miorin]]></name>
@@ -232,7 +232,7 @@ write some C code again.</p>
 " autoread and autowrite
 augroup save
   au!
-  au FocusLost * update
+  au FocusLost * wall
 augroup END
 set nohidden
 set nobackup
