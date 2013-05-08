@@ -14,7 +14,7 @@ From my [.vimrc][1]
 " autoread and autowrite
 augroup save
   au!
-  au FocusLost * update
+  au FocusLost * wall
 augroup END
 set nohidden
 set nobackup
