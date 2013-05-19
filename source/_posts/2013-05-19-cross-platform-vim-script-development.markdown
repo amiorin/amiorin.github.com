@@ -5,6 +5,8 @@ date: 2013-05-19 10:01
 comments: true
 categories: [vim, windows]
 ---
+I developed [vim-project][0] on my Mac and I wanted to be sure that it worked
+also on Windows. It took me 1 day of work
 
 Buy windows 8
 Install windows 8
