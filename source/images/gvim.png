@@ -1,0 +1,11 @@
+--2013-05-21 07:26:49--  https://pbs.twimg.com/media/BKm5QA6CMAASvSf.png:large
+Resolving pbs.twimg.com... 199.96.58.24, 199.96.58.144
+Connecting to pbs.twimg.com|199.96.58.24|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 41456 (40K) [image/png]
+Saving to: ‘BKm5QA6CMAASvSf.png:large’
+
+     0K .......... .......... .......... ..........           100%  408K=0.1s
+
+2013-05-21 07:26:50 (408 KB/s) - ‘BKm5QA6CMAASvSf.png:large’ saved [41456/41456]
+

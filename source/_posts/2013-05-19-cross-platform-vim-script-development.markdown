@@ -24,6 +24,10 @@ If you install windows 8 on an empty partition, you cannot activate your
 Windows 8. I have found how to fix the problem [in the Microsoft
 forum](http://answers.microsoft.com/en-us/windows/forum/windows_8-windows_install/this-key-didnt-work-please-check-it-and-try-again/ba90b43b-682a-4633-9260-2d25c1f13903?page=2)
 
+## Installation of Vim
+I've installed [this version of
+vim](ftp://ftp.vim.org/pub/vim/pc/gvim73_46.exe)
+
 ## Setup of vundle in Windows
 I've followed the instructions from [Vundle for Windows][2] to setup Git and
 Curl.
@@ -32,11 +36,14 @@ Curl.
 This is the hard part. I wanted to be able to modify my plugin from MacVim and
 then restart Gvim to test it.
 
-Configure VirtualBox shared folder.
+To achive this, you need to configure a VirtualBox shared folder.
+Then you need to setup a network unit in Windows. The problem is that the
+network unit must be visible by all users, because the Symbolic links are
+created as Administrator while vim is started as normal user.
 
-Setup a network unit in Windows (from [stackoverflow][3])
+I've found the solution on [stackoverflow][3]:
 
-For this hack you will need ``psexec`` [SysinternalsSuite][4] by Mark Russinovich:
+For this **hack** you will need ``psexec`` [SysinternalsSuite][4] by Mark Russinovich:
 
 1. Open an elevated cmd.exe prompt (Run as administrator). Press the ``right
    command``. Write ``cmd`` and then ``<C-S-CR>`` (``ctrl-shit-enter``).
@@ -50,10 +57,16 @@ For this hack you will need ``psexec`` [SysinternalsSuite][4] by Mark Russinovic
 3. Create the persistent mapped drive as the SYSTEM account with the following
    command ``net use z:  \\VBOXSVR\gvim /persistent:yes``
 
-Now you can create the links, but you have to do this procedure everytime you
+Now you can create the links, but you have to do this **hack** everytime you
 restart Windows.
 
 ## Creating symbolic links in NTFS
+My Gvim setup is in ``/Users/amiorin/Code/gvim``, ``gvim`` from now on.
+``gvim/_vimrc`` is a link to ``~/.vimrc``. ``vimfiles`` is not a link, but a
+real directory, because I use [Vundle](https://github.com/gmarik/vundle).  But
+``gvim/vimfiles/bundle/vim-project`` is a link to
+``~/.vim/bundle/vim-project``. ``gvim`` is ``Z:`` in Windows 8.
+
 Using an elevated cmd.exe (``<C-S-CR``)
 ```sh
 cd %USERPROFILE%
@@ -76,7 +89,7 @@ Here you find a patched [consolas for powerline](http://codejury.com/consolas-fo
 set guifont=Consolas\ for\ Powerline\ FixedD:h12
 ```
 
-![gvim](https://pbs.twimg.com/media/BKm5QA6CMAASvSf.png:large)
+{% img /images/gvim.png %}
 
 ## Conditional ``.vimrc``
 Some configurations are specific to one manchine. I've used the function
@@ -96,8 +109,8 @@ endif
 With this setup I can write my plugins in MacVim and test them on Gvim and
 MacVim at the same time without any copy and paste of files or any commit and
 pull. I could use Gvim, but I use a lot shortcuts starting with the ``left
-command`` in MacVim and the ``left command`` is used by VirtualBox inside the
-guest os.
+command`` in MacVim and the ``left command`` is used by VirtualBox and it's a
+dead key inside the guest os.
 
 [0]: https://github.com/amiorin/vim-project
 [1]: http://www.vagrantup.com/
