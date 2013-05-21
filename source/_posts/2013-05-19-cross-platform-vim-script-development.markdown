@@ -38,7 +38,7 @@ then restart Gvim to test it.
 
 To achive this, you need to configure a VirtualBox shared folder.
 Then you need to setup a network unit in Windows. The problem is that the
-network unit must be visible by all users, because the Symbolic links are
+network unit must be visible by all users, because the symbolic links are
 created as Administrator while vim is started as normal user.
 
 I've found the solution on [stackoverflow][3]:
