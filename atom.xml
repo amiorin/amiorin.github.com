@@ -4,7 +4,7 @@
   <title><![CDATA[I am alberto]]></title>
   <link href="http://albertomiorin.com/atom.xml" rel="self"/>
   <link href="http://albertomiorin.com/"/>
-  <updated>2013-05-09T00:29:57+02:00</updated>
+  <updated>2013-05-21T07:24:04+02:00</updated>
   <id>http://albertomiorin.com/</id>
   <author>
     <name><![CDATA[Alberto Miorin]]></name>
@@ -12,6 +12,147 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Cross platform vim script development]]></title>
+    <link href="http://albertomiorin.com/blog/2013/05/19/cross-platform-vim-script-development/"/>
+    <updated>2013-05-19T10:01:00+02:00</updated>
+    <id>http://albertomiorin.com/blog/2013/05/19/cross-platform-vim-script-development</id>
+    <content type="html"><![CDATA[<p>I&#8217;ve developed <a href="https://github.com/amiorin/vim-project">vim-project</a> on my Mac and I wanted to be sure that it worked
+on Windows too.
+I bought a Windows 8 license some time ago for only 29,99 € to update my Acer
+from Windows Vista.
+I could try the plugin in my Acer, but I wanted to have something similar to a
+<a href="http://www.vagrantup.com/">Vagrant</a> setup.
+So I&#8217;ve created a VirtualBox for Windows 8, but I&#8217;ve encountered some obstacles.</p>
+
+<h2>Uninstall windows 8</h2>
+
+<p>You can have only one installation of Windows 8. So I followed the
+instructions to uninstall the Windows 8 license from my Acer from <a href="http://www.howtogeek.com/124286/how-to-uninstall-your-windows-product-key-before-you-sell-your-pc/">How-To Geek</a></p>
+
+<p>It wasn&#8217;t enough. I had to call Microsoft to activate Window 8.</p>
+
+<h2>Windows 8 upgrade with an empty disk</h2>
+
+<p>If you install windows 8 on an empty partition, you cannot activate your
+Windows 8. I have found how to fix the problem <a href="http://answers.microsoft.com/en-us/windows/forum/windows_8-windows_install/this-key-didnt-work-please-check-it-and-try-again/ba90b43b-682a-4633-9260-2d25c1f13903?page=2">in the Microsoft
+forum</a></p>
+
+<h2>Installation of Vim</h2>
+
+<p>I&#8217;ve installed <a href="ftp://ftp.vim.org/pub/vim/pc/gvim73_46.exe">this version of
+vim</a></p>
+
+<h2>Setup of vundle in Windows</h2>
+
+<p>I&#8217;ve followed the instructions from <a href="https://github.com/gmarik/vundle/wiki/Vundle-for-Windows">Vundle for Windows</a> to setup Git and
+Curl.</p>
+
+<h2>Shared Folder with VirtualBox</h2>
+
+<p>This is the hard part. I wanted to be able to modify my plugin from MacVim and
+then restart Gvim to test it.</p>
+
+<p>To achive this, you need to configure a VirtualBox shared folder.
+Then you need to setup a network unit in Windows. The problem is that the
+network unit must be visible by all users, because the Symbolic links are
+created as Administrator while vim is started as normal user.</p>
+
+<p>I&#8217;ve found the solution on <a href="http://stackoverflow.com/a/4763324/2268638">stackoverflow</a>:</p>
+
+<p>For this <strong>hack</strong> you will need <code>psexec</code> <a href="http://technet.microsoft.com/en-us/sysinternals/bb842062.aspx">SysinternalsSuite</a> by Mark Russinovich:</p>
+
+<ol>
+<li><p>Open an elevated cmd.exe prompt (Run as administrator). Press the <code>right
+command</code>. Write <code>cmd</code> and then <code>&lt;C-S-CR&gt;</code> (<code>ctrl-shit-enter</code>).</p></li>
+<li><p>Elevate again to root using PSExec.exe: Navigate to the folder containing
+SysinternalsSuite and execute the following command <code>psexec -i -s
+cmd.exe</code> you are now inside of a prompt that is <code>nt authority\system</code>
+and you can prove this by typing <code>whoami</code>. The <code>-i</code> is needed because
+drive mappings need to interact with the user</p></li>
+<li><p>Create the persistent mapped drive as the SYSTEM account with the following
+command <code>net use z:  \\VBOXSVR\gvim /persistent:yes</code></p></li>
+</ol>
+
+
+<p>Now you can create the links, but you have to do this <strong>hack</strong> everytime you
+restart Windows.</p>
+
+<h2>Creating symbolic links in NTFS</h2>
+
+<p>My Gvim setup is in <code>/Users/amiorin/Code/gvim</code>, <code>gvim</code> from now on.
+<code>gvim/_vimrc</code> is a link to <code>~/.vimrc</code>. <code>vimfiles</code> is not a link, but a
+real directory, because I use <a href="https://github.com/gmarik/vundle">Vundle</a>.  But
+<code>gvim/vimfiles/bundle/vim-project</code> is a link to
+<code>~/.vim/bundle/vim-project</code>. <code>gvim</code> is <code>Z:</code> in Windows 8.</p>
+
+<p>Using an elevated cmd.exe (<code>&lt;C-S-CR</code>)</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nb">cd</span> %USERPROFILE%
+</span><span class='line'>mklink _vimrc z:<span class="se">\_</span>vimrc
+</span><span class='line'>mklink /D vimfiles z:<span class="se">\v</span>imfiles
+</span><span class='line'><span class="c"># Vundle uses .vim also on Windows.</span>
+</span><span class='line'>mklink /D .vim vimfiles
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Inside Gvim</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'>BundleInstall
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then I removed my plugin from <code>vimfiles/bundle</code> and I have created a link
+from <code>~/.vim/bundle/vim-project</code> to be able to use the same code in MacVim
+and Gvim.</p>
+
+<h2>Powerline with Consolas font</h2>
+
+<p>Here you find a patched <a href="http://codejury.com/consolas-font-in-vim-powerline-windows/">consolas for powerline</a></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">set</span> <span class="nb">guifont</span><span class="p">=</span>Consolas\ <span class="k">for</span>\ Powerline\ FixedD:h12
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="https://pbs.twimg.com/media/BKm5QA6CMAASvSf.png:large" alt="gvim" /></p>
+
+<h2>Conditional <code>.vimrc</code></h2>
+
+<p>Some configurations are specific to one manchine. I&#8217;ve used the function
+<code>hostname()</code> in this way.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">if</span> hostname<span class="p">()</span> <span class="p">==</span># <span class="s1">&#39;air.local&#39;</span>
+</span><span class='line'>  <span class="k">set</span> <span class="nb">guifont</span><span class="p">=</span>Menlo\ <span class="k">for</span>\ Powerline:h12
+</span><span class='line'><span class="k">elseif</span> hostname<span class="p">()</span> <span class="p">==</span># <span class="s1">&#39;TOSHIBA&#39;</span>
+</span><span class='line'>  <span class="k">set</span> <span class="nb">guifont</span><span class="p">=</span>Consolas\ <span class="k">for</span>\ Powerline\ FixedD:h12
+</span><span class='line'><span class="k">endif</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>air.local</code> is the Mac and <code>TOSHIBA</code> is the Windows 8.</p>
+
+<h2>Conclusion</h2>
+
+<p>With this setup I can write my plugins in MacVim and test them on Gvim and
+MacVim at the same time without any copy and paste of files or any commit and
+pull. I could use Gvim, but I use a lot shortcuts starting with the <code>left
+command</code> in MacVim and the <code>left command</code> is used by VirtualBox and it&#8217;s a
+dead key inside the guest os.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[A Vim plugin for editing fenced code blocks]]></title>
