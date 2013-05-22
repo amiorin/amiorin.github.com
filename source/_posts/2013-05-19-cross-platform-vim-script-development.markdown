@@ -108,9 +108,9 @@ endif
 ## Conclusion
 With this setup I can write my plugins in MacVim and test them on Gvim and
 MacVim at the same time without any copy and paste of files or any commit and
-pull. I could use Gvim, but I use a lot shortcuts starting with the ``left
-command`` in MacVim and the ``left command`` is used by VirtualBox and it's a
-dead key inside the guest os.
+pull. I could use Gvim, but I use a lot of shortcuts starting with the ``left
+command`` in MacVim and the ``left command`` used by VirtualBox is a dead key
+inside the guest os.
 
 [0]: https://github.com/amiorin/vim-project
 [1]: http://www.vagrantup.com/
